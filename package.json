@@ -3,11 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "pnpm run services:up & next dev --turbopack ; pnpm services:down",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prepare": "husky"
+    "prepare": "husky",
+    "docker:compose": "docker compose -f ./infra/compose.yml --env-file=.env",
+    "services:up": "pnpm docker:compose up -d",
+    "services:down": "pnpm docker:compose down"
   },
   "dependencies": {
     "@radix-ui/react-slot": "1.2.2",
@@ -16,6 +19,7 @@
     "lucide-react": "^0.511.0",
     "next": "15.3.2",
     "next-themes": "^0.4.6",
+    "prisma": "6.8.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tailwind-merge": "^3.3.0"
