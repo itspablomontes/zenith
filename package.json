@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "pnpm run services:up & next dev --turbopack ; pnpm services:down",
+    "dev": "pnpm run services:up & next dev --turbopack; pnpm services:down",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
